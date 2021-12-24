@@ -21,9 +21,11 @@ esp.Font = "GothamSemibold"
 esp.TextSize = esp_settings.textsize
 esp.TextColor3 = Color3.fromRGB(esp_settings.colour)
 
+game:GetService("RunService").RenderStepped:Connect(function()
 for i,v in pairs (game:GetService("Players"):GetPlayers()) do
     if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Esp11")==nil and v.TeamColor ~= game:GetService("Players").LocalPlayer.TeamColor then
           esp.Text = "{"..v.Name.."}"
           gui:Clone().Parent = v.Character.Head
     end
 end
+end)
